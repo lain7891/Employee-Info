@@ -10,6 +10,26 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
+
+const role = [
+    {
+                type: "list",
+                message: "What is your role?",
+                name: "role",
+                choices: ["Manager", "Engineer", "Intern"],
+            },
+] 
+
+inquirer.prompt(role).then(function (answers){
+    if(answers.role === "Manager"){
+return managerQuestions}
+else if(answers.role === "Engineer"){
+return engineerQuestions}
+else if(answers.role === "Intern"){
+    return internQuestions
+}
+});
+
 const managerQuestions = [
     {
         type: "input",
