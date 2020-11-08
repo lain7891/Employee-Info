@@ -1,0 +1,16 @@
+.fonts {
+    font-family: 'Architects Daughter', cursive;
+}
+
+#header{
+    background-color: rgb(106, 106, 180);
+    color: white;
+    height: 50px;
+    padding-top: 20px;
+    padding-bottom: 80px;
+   
+}
+
+.text-center{
+    font-size: 50px;
+}
