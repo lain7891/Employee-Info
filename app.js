@@ -10,17 +10,57 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
-const questions = [
+const managerQuestions = [
     {
         type: "input",
         message: "What is your name?",
         name: "name",
     },
     {
-        type: "list",
-        message: "What is your role?",
-        name: "role",
-        choices: ["Manager", "Engineer", "Intern"],
+        type: "input",
+        message: "What is your ID?",
+        name: "ID",
+    },
+    {
+        type: "input",
+        message: "What is your email address?",
+        name: "email",
+    },
+    {
+        type: "input",
+        message: "What is your office number?",
+        name: "office number",
+    },
+]
+
+const internQuestions = [
+    {
+        type: "input",
+        message: "What is your name?",
+        name: "name",
+    },
+    {
+        type: "input",
+        message: "What is your ID?",
+        name: "ID",
+    },
+    {
+        type: "input",
+        message: "What is your email address?",
+        name: "email",
+    },
+    {
+        type: "input",
+        message: "Where did you go to school?",
+        name: "school",
+    },
+]
+
+const engineerQuestions = [
+    {
+        type: "input",
+        message: "What is your name?",
+        name: "name",
     },
     {
         type: "input",
@@ -37,35 +77,66 @@ const questions = [
         message: "What is your GitHub account?",
         name: "github",
     },
-    {
-        type: "input",
-        message: "What is your school name?",
-        name: "school",
-    },
-    {
-        type: "input",
-        message: "What is your office number?",
-        name: "officeNumber",
-    }
-];
+]
 
-inquirer.prompt(questions)
+// const questions = [
+//     {
+//         type: "input",
+//         message: "What is your name?",
+//         name: "name",
+//     },
+//     {
+//         type: "list",
+//         message: "What is your role?",
+//         name: "role",
+//         choices: ["Manager", "Engineer", "Intern"],
+//     },
+//     {
+//         type: "input",
+//         message: "What is your ID?",
+//         name: "ID",
+//     },
+//     {
+//         type: "input",
+//         message: "What is your email address?",
+//         name: "email",
+//     },
+//     {
+//         type: "input",
+//         message: "What is your GitHub account?",
+//         name: "github",
+//     },
+//     {
+//         type: "input",
+//         message: "What is your school name?",
+//         name: "school",
+//     },
+//     {
+//         type: "input",
+//         message: "What is your office number?",
+//         name: "officeNumber",
+//     }
+// ];
+
+inquirer.prompt(managerQuestions)
     .then(function (data) {
         const fileName = "team.html";
         console.log(data);
         // writeToFile(fileName, data);
       });
+
+
     
   
-  function employeeTeamMembers(data) {
-      if(this.role === manager) {
-          console.log()
-      }
+//   function team(data) {
+//       if(this.role === manager) {
+//           console.log()
+//       }
 
-  }
+//   }
   
 //   function writeToFile(fileName, data) {
-//     fs.writeFile(fileName, generateMarkdown(data), null, function (err) {
+//     fs.writeFile(fileName, team(data), null, function (err) {
 //       if (err) {
 //         return console.log(err);
 //       }
