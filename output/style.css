@@ -3,7 +3,7 @@
 }
 
 #header{
-    background-color: rgb(106, 106, 180);
+    background-color:rgb(0, 119, 255);
     color: white;
     height: 50px;
     padding-top: 20px;
@@ -13,4 +13,13 @@
 
 .text-center{
     font-size: 50px;
+}
+
+.card {
+    margin-right: 2em;
+}
+
+.card-header {
+    background-color:rgb(52, 197, 241);
+    color: white;
 }
