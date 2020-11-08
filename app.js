@@ -18,8 +18,9 @@ const questions = [
     },
     {
         type: "list",
-        message: "What is your role",
-        name: ["Manager", "Engineer", "Intern"],
+        message: "What is your role?",
+        name: "role",
+        choices: ["Manager", "Engineer", "Intern"],
     },
     {
         type: "input",
