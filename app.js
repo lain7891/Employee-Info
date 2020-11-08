@@ -51,22 +51,27 @@ const questions = [
 
 inquirer.prompt(questions)
     .then(function (data) {
-        const fileName = "index.html";
+        const fileName = "team.html";
         console.log(data);
-        writeToFile(fileName, data);
+        // writeToFile(fileName, data);
       });
     
   
-  
-  
-  function writeToFile(fileName, data) {
-    fs.writeFile(fileName, generateMarkdown(data), null, function (err) {
-      if (err) {
-        return console.log(err);
+  function employeeTeamMembers(data) {
+      if(this.role === manager) {
+          console.log()
       }
-      console.log("DONE");
-    });
+
   }
+  
+//   function writeToFile(fileName, data) {
+//     fs.writeFile(fileName, generateMarkdown(data), null, function (err) {
+//       if (err) {
+//         return console.log(err);
+//       }
+//       console.log("DONE");
+//     });
+//   }
 
 
 // Write code to use inquirer to gather information about the development team members,
