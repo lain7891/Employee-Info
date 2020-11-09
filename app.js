@@ -18,45 +18,66 @@ const role = [
     choices: ["Manager", "Engineer", "Intern"],
   },
 ];
+function newEmployeeRole() {
+  inquirer.prompt(role).then(function (answers) {
+    if (answers.role === "Manager") {
+      return newManager();
+    } else if (answers.role === "Engineer") {
+      return newEngineer();
+    } else if (answers.role === "Intern") {
+      return newIntern();
+    }
+  });
+}
+newEmployeeRole();
 
-inquirer.prompt(role).then(function (answers) {
-  if (answers.role === "Manager") {
-    return employeeDif;
-  } else if (answers.role === "Engineer") {
-    return employeeDif;
-  } else if (answers.role === "Intern") {
-    return employeeDif;
-  }
-});
-const employeeDif = [
-  {
-    type: "input",
-    message: "What is your office number?",
-    name: "office number",
-  },
-  {
-    type: "input",
-    message: "Where did you go to school?",
-    name: "school",
-  },
-  {
-    type: "input",
-    message: "What is your GitHub account?",
-    name: "github",
-  },
-];
+// const employeeDif = [
+//   {
+//     type: "input",
+//     message: "What is your office number?",
+//     name: "office number",
+//   },
+//   {
+//     type: "input",
+//     message: "Where did you go to school?",
+//     name: "school",
+//   },
+//   {
+//     type: "input",
+//     message: "What is your GitHub account?",
+//     name: "github",
+//   },
+// ];
 
-inquirer.prompt(employeeDif).then(function (answers) {
-  if (answers.employeeDif === "Manager") {
-    return questions;
-  } else if (answers.employeeDif === "Engineer") {
-    return questions;
-  } else if (answers.employeeDif === "Intern") {
-    return questions;
-  }
-});
+// inquirer.prompt(employeeDif).then(function (answers) {
+//   if (answers.employeeDif === "Manager") {
+//     return questions;
+//   } else if (answers.employeeDif === "Engineer") {
+//     return questions;
+//   } else if (answers.employeeDif === "Intern") {
+//     return questions;
+//   }
+// });
 
-const questions = [
+// const questions = [
+//   {
+//     type: "input",
+//     message: "What is your name?",
+//     name: "name",
+//   },
+//   {
+//     type: "input",
+//     message: "What is your ID?",
+//     name: "ID",
+//   },
+//   {
+//     type: "input",
+//     message: "What is your email address?",
+//     name: "email",
+//   },
+// ];
+
+const managerQuestions = [
   {
     type: "input",
     message: "What is your name?",
@@ -65,62 +86,81 @@ const questions = [
   {
     type: "input",
     message: "What is your ID?",
-    name: "ID",
+    name: "id",
   },
   {
     type: "input",
     message: "What is your email address?",
     name: "email",
   },
+  {
+    type: "input",
+    message: "What is your office number?",
+    name: "officeNumber",
+  },
 ];
 
-// const internQuestions = [
-//     {
-//         type: "input",
-//         message: "What is your name?",
-//         name: "name",
-//     },
-//     {
-//         type: "input",
-//         message: "What is your ID?",
-//         name: "ID",
-//     },
-//     {
-//         type: "input",
-//         message: "What is your email address?",
-//         name: "email",
-//     },
-//     {
-//         type: "input",
-//         message: "Where did you go to school?",
-//         name: "school",
-//     },
-// ]
+function newManager() {
+  inquirer.prompt(managerQuestions).then(function (response) {
+    const manager = new Manager(
+      response.name,
+      response.id,
+      response.email,
+      response.officeNumber
+    );
+    employeeTeamArray.push(manager);
+    console.log(response);
+    newEmployee();
+  });
+}
 
-// const engineerQuestions = [
-//     {
-//         type: "input",
-//         message: "What is your name?",
-//         name: "name",
-//     },
-//     {
-//         type: "input",
-//         message: "What is your ID?",
-//         name: "ID",
-//     },
-//     {
-//         type: "input",
-//         message: "What is your email address?",
-//         name: "email",
-//     },
-//     {
-//         type: "input",
-//         message: "What is your GitHub account?",
-//         name: "github",
-//     },
-// ]
+const internQuestions = [
+  {
+    type: "input",
+    message: "What is your name?",
+    name: "name",
+  },
+  {
+    type: "input",
+    message: "What is your ID?",
+    name: "id",
+  },
+  {
+    type: "input",
+    message: "What is your email address?",
+    name: "email",
+  },
+  {
+    type: "input",
+    message: "Where did you go to school?",
+    name: "school",
+  },
+];
 
-const newEmployee = [
+const engineerQuestions = [
+  {
+    type: "input",
+    message: "What is your name?",
+    name: "name",
+  },
+  {
+    type: "input",
+    message: "What is your ID?",
+    name: "id",
+  },
+  {
+    type: "input",
+    message: "What is your email address?",
+    name: "email",
+  },
+  {
+    type: "input",
+    message: "What is your GitHub account?",
+    name: "github",
+  },
+];
+
+const newEmployeeQuestions = [
   {
     type: "list",
     message: "Want to add a new employee?",
@@ -128,6 +168,18 @@ const newEmployee = [
     choices: ["YES", "NO"],
   },
 ];
+
+function newEmployee() {
+  inquirer.prompt(newEmployeeQuestions).then(function (response) {
+    if (response.new === "YES") {
+      newEmployeeRole();
+    } else {
+        console.log(employeeTeamArray);
+        generateTeam();
+      console.log("You're team is set!");
+    }
+  });
+}
 
 // const questions = [
 //     {
@@ -186,21 +238,33 @@ employeeTeamArray = [];
 
 // } newManager();
 
-// function newIntern(){
-//     inquirer.prompt(internQuestions)
-//     .then(function (answers) {
-//         const intern = new intern(
-//            response.name,
-//            response.email,
-//            response.id,
-//            response.school,
-//         ); employeeTeamArray.push(intern);
-//         console.log(answers);
-//         // writeToFile(fileName, data);
+function newIntern() {
+  inquirer.prompt(internQuestions).then(function (response) {
+    const intern = new Intern(
+      response.name,
+      response.id,
+      response.email,
+      response.school
+    );
+    employeeTeamArray.push(intern);
+    console.log(response);
+   newEmployee();
+  });
+}
 
-//       });
-
-// } newIntern();node
+function newEngineer() {
+  inquirer.prompt(engineerQuestions).then(function (response) {
+    const engineer = new Engineer(
+      response.name,
+      response.id,
+      response.email,
+      response.github,
+    );
+    employeeTeamArray.push(engineer);
+    console.log(response);
+   newEmployee();
+  });
+}
 
 //   function team(data) {
 //       if(this.role === manager) {
@@ -209,15 +273,15 @@ employeeTeamArray = [];
 
 //   }
 
-// function () {
-//     fs.writeFile (outputPath, render(employeeArray), (err) => {
-//       if (err) {
-//         throw err;
-//       } else {
-//         console.log(`Got it!`);
-//       }
-//     });
-//   }
+function generateTeam() {
+    fs.writeFile (outputPath, render(employeeTeamArray), (err) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log(`Got it!`);
+      }
+    });
+  } 
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)

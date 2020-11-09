@@ -9,14 +9,13 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/c502137733.js"></script>
 </head>
 
-<body class="fonts">
+<body>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12 jumbotron mb-3 team-heading" id="header">
+            <div class="col-12 jumbotron mb-3 team-heading">
                 <h1 class="text-center">My Team</h1>
             </div>
         </div>
@@ -24,45 +23,16 @@
     <div class="container">
         <div class="row">
             <div class="team-area col-12 d-flex justify-content-center">
-                <!-- MANAGER EMPLOYEE CARD -->
                 <div class="card employee-card">
-                    <div class="card-header">
-                        <h2 class="card-title">{{ name }}</h2>
-                        <h3 class="card-title"><i class="fas fa-mug-hot mr-2"></i>{{ role }}</h3>
-                    </div>
-                    <div class="card-body">
-                        <ul class="list-group">
-                            <li class="list-group-item">ID: {{ id }}</li>
-                            <li class="list-group-item">Email: <a href="mailto:{{ email }}">{{ email }}</a></li>
-                            <li class="list-group-item">Office number: {{ officeNumber }}</li>
-                        </ul>
-                    </div>
-                </div>
-<!-- ENGINEER EMPLOYEE CARD -->
-<div class="card employee-card">
     <div class="card-header">
-        <h2 class="card-title">{{ name }}</h2>
-        <h3 class="card-title"><i class="fas fa-glasses mr-2"></i>{{ role }}</h3>
+        <h2 class="card-title">Bob</h2>
+        <h3 class="card-title"><i class="fas fa-mug-hot mr-2"></i>Manager</h3>
     </div>
     <div class="card-body">
         <ul class="list-group">
-            <li class="list-group-item">ID: {{ id }}</li>
-            <li class="list-group-item">Email: <a href="mailto:{{ email }}">{{ email }}</a></li>
-            <li class="list-group-item">GitHub: <a href="https://github.com/{{ github }}" target="_blank" rel="noopener noreferrer">{{ github }}</a></li>
-        </ul>
-    </div>
-</div>
-<!-- INTERN EMPLOYEE CARD -->
-<div class="card employee-card">
-    <div class="card-header">
-        <h2 class="card-title">{{ name }}</h2>
-        <h3 class="card-title"><i class="fas fa-user-graduate mr-2"></i>{{ role }}</h3>
-    </div>
-    <div class="card-body">
-        <ul class="list-group">
-            <li class="list-group-item">ID: {{ id }}</li>
-            <li class="list-group-item">Email: <a href="mailto:{{ email }}">{{ email }}</a></li>
-            <li class="list-group-item">School: {{ school }}</li>
+            <li class="list-group-item">ID: 3</li>
+            <li class="list-group-item">Email: <a href="mailto:bob@gmail.com">bob@gmail.com</a></li>
+            <li class="list-group-item">Office number: 8888888</li>
         </ul>
     </div>
 </div>
