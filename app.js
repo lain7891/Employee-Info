@@ -10,6 +10,7 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
+// array of the employee roles available
 const role = [
   {
     type: "list",
@@ -18,6 +19,7 @@ const role = [
     choices: ["Manager", "Engineer", "Intern"],
   },
 ];
+// function below allows user to choose which role they want
 function newEmployeeRole() {
   inquirer.prompt(role).then(function (answers) {
     if (answers.role === "Manager") {
@@ -31,6 +33,7 @@ function newEmployeeRole() {
 }
 newEmployeeRole();
 
+// manager array questions
 const managerQuestions = [
   {
     type: "input",
@@ -53,7 +56,7 @@ const managerQuestions = [
     name: "officeNumber",
   },
 ];
-
+// prompts the answers to the list of manager questions above
 function newManager() {
   inquirer.prompt(managerQuestions).then(function (response) {
     const manager = new Manager(
@@ -67,7 +70,7 @@ function newManager() {
     newEmployee();
   });
 }
-
+// inter array questions
 const internQuestions = [
   {
     type: "input",
@@ -90,7 +93,7 @@ const internQuestions = [
     name: "school",
   },
 ];
-
+// prompts the answers to the list of intern questions above
 function newIntern() {
     inquirer.prompt(internQuestions).then(function (response) {
       const intern = new Intern(
@@ -104,7 +107,7 @@ function newIntern() {
      newEmployee();
     });
   }
-
+// engineer array questions
 const engineerQuestions = [
   {
     type: "input",
@@ -127,7 +130,7 @@ const engineerQuestions = [
     name: "github",
   },
 ];
-
+// prompts the answers to the list of intern questions above
 function newEngineer() {
     inquirer.prompt(engineerQuestions).then(function (response) {
       const engineer = new Engineer(
@@ -141,7 +144,7 @@ function newEngineer() {
      newEmployee();
     });
   }
-
+// Array for adding a new employee
 const newEmployeeQuestions = [
   {
     type: "list",
@@ -150,11 +153,12 @@ const newEmployeeQuestions = [
     choices: ["YES", "NO"],
   },
 ];
-
+// If you add new employee then it will call newEmployeeRole and the prompts will display again.
 function newEmployee() {
   inquirer.prompt(newEmployeeQuestions).then(function (response) {
     if (response.new === "YES") {
       newEmployeeRole();
+    //   If you do not add new employee then it generates the list of employees
     } else {
         console.log(employeeTeamArray);
         generateTeam();
@@ -165,42 +169,7 @@ function newEmployee() {
 
 employeeTeamArray = [];
 
-
-// function newIntern() {
-//   inquirer.prompt(internQuestions).then(function (response) {
-//     const intern = new Intern(
-//       response.name,
-//       response.id,
-//       response.email,
-//       response.school
-//     );
-//     employeeTeamArray.push(intern);
-//     console.log(response);
-//    newEmployee();
-//   });
-// }
-
-// function newEngineer() {
-//   inquirer.prompt(engineerQuestions).then(function (response) {
-//     const engineer = new Engineer(
-//       response.name,
-//       response.id,
-//       response.email,
-//       response.github,
-//     );
-//     employeeTeamArray.push(engineer);
-//     console.log(response);
-//    newEmployee();
-//   });
-// }
-
-//   function team(data) {
-//       if(this.role === manager) {
-//           console.log()
-//       }
-
-//   }
-
+// Renders my employee Team array and allows it to show on my team.html
 function generateTeam() {
     fs.writeFile (outputPath, render(employeeTeamArray), (err) => {
       if (err) {
