@@ -18,7 +18,9 @@ As a manager I want to generate a website that display’s my team’s basic inf
 
 ## Usage
 
+![readme-gif](assets/employeeInfo.gif)
 
+<img src="assets/employeeTeam.png" width="400" height="400"/>
 
 * Node.js
 * Variable Created (specifically CONST)
