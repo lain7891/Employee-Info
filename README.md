@@ -1,5 +1,9 @@
 # Employee-Info
 
+ ![badge](https://img.shields.io/badge/MIT-License-<color>)
+
+# Description 
+
  For this assignment we were to create a Node CLI that takes in information about employees and generates an HTML website that displays summaries for each person. We also needed to pass some failed tests by reading the errors on the terminal as well as on the test.js files. This is important as a developer, so you make code maintainable. 
 As a manager I want to generate a website that display’s my team’s basic information so that I can have quick access to GitHub and emails. 
 
@@ -20,7 +24,8 @@ As a manager I want to generate a website that display’s my team’s basic inf
 
 ![readme-gif](assets/employeeInfo.gif)
 
-<img src="assets/employeeTeam.png" width="400" height="400"/>
+<img src="assets/employeeTeam.png" width="800" height="600"/>
+<img src="assets/employeeTeam2.png" width="800" height="600"/>
 
 * Node.js
 * Variable Created (specifically CONST)
