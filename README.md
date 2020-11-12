@@ -9,14 +9,14 @@ As a manager I want to generate a website that display’s my team’s basic inf
 
 ## Table of Content
 
-*[Installation](#installation)
-*[Usage](#usage)
-*[Credits](#credits)
-*[License](#license)
+* [Installation](#installation)
+* [Usage](#usage)
+* [Credits](#credits)
+* [License](#license)
 
 ## Installation
 
-*Created a git repository
+* Created a git repository
 * Ran npm init, npm install, npm run test.  
 * Created CSS
 
